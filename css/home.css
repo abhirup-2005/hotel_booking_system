@@ -1,0 +1,236 @@
+/* =================== HERO =================== */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?auto=format&fit=crop&w=1920&q=80") center/cover no-repeat;
+  z-index: -2;
+  transform: scale(1.1);
+  animation: move-bg 25s infinite alternate ease-in-out;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(212,175,55,0.15));
+  z-index: -1;
+  animation: gradientMove 12s infinite alternate ease-in-out;
+}
+
+/* Add dark filter to hero image when in dark mode */
+body:not(.light-mode) .hero::before {
+  filter: brightness(0.4);
+}
+
+
+@keyframes move-bg {
+  from { transform: scale(1.1) translate(0, 0); }
+  to { transform: scale(1.1) translate(-30px, -30px); }
+}
+
+@keyframes gradientMove {
+  0% { background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(212,175,55,0.1)); }
+  100% { background: linear-gradient(135deg, rgba(0,0,0,0.5), rgba(212,175,55,0.3)); }
+}
+
+.hero-content {
+  z-index: 1;
+  padding: 2rem;
+  max-width: 700px;
+}
+
+.hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  background: var(--title-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+  color: var(--subtext-color);
+  margin-bottom: 2rem;
+}
+
+.search-box {
+  display: flex;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 40px;
+  backdrop-filter: blur(10px);
+  padding: 0.5rem;
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto 1.5rem;
+}
+
+.search-box input {
+  flex: 1;
+  min-width: 0; /*change*/
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-color);
+  padding: 0.8rem;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-btn {
+    white-space: nowrap;
+}
+
+/* =================== FEATURES =================== */
+.features {
+  text-align: center;
+  padding: 10px;
+}
+
+.features h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  background: var(--title-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 2rem 1.5rem;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+/* =================== STATS =================== */
+.stats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  text-align: center;
+  padding: 3rem 1rem 5rem;
+}
+
+.stat h3 {
+  font-size: 2rem;
+  background: var(--title-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat p {
+  color: var(--subtext-color);
+}
+
+/* =================== DESTINATIONS =================== */
+.destinations {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.destinations h2 {
+  background: var(--title-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 2rem;
+}
+
+.dest-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.dest-card {
+  position: relative;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.dest-card .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+.dest-card:hover .overlay {
+  background: rgba(0,0,0,0.6);
+}
+
+.dest-card h3 {
+  color: #fff;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+/* =================== TESTIMONIALS =================== */
+.testimonials {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.testimonials h2 {
+  font-family: 'Playfair Display', serif;
+  background: var(--title-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
+}
+
+.testimonial-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.5rem;
+  font-style: italic;
+  backdrop-filter: blur(10px);
+}
+
+.testimonial-card span {
+  display: block;
+  margin-top: 1rem;
+  color: var(--subtext-color);
+  font-style: normal;
+  font-weight: 500;
+}

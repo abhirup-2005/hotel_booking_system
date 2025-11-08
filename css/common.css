@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500&display=swap');
+
+/* =================== THEME VARIABLES =================== */
+:root {
+  --bg: radial-gradient(circle at top left, #1a1a1a, #0d0d0d 60%);
+  --text-color: #f5f5f5;
+  --subtext-color: #c7c7c7;
+  --card-bg: rgba(255, 255, 255, 0.08);
+  --border: rgba(212, 175, 55, 0.25);
+  --title-gradient: linear-gradient(90deg, #d4af37, #ffdd66);
+  --btn-bg: linear-gradient(135deg, #d4af37, #ffdd66);
+  --btn-text: #0f0f0f;
+}
+
+body.light-mode {
+  --bg: linear-gradient(135deg, #f9f5ec 0%, #f4e9cf 100%);
+  --text-color: #3b2e1a;
+  --subtext-color: #5a4a2e;
+  --card-bg: rgba(255, 255, 255, 0.5);
+  --border: rgba(201, 163, 63, 0.4);
+  --title-gradient: linear-gradient(90deg, #c9a33f, #f4d97c);
+  --btn-bg: linear-gradient(135deg, #d4af37, #f1cb60);
+  --btn-text: #3b2e1a;
+}
+
+/* =================== BASE STYLES =================== */
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+  background: var(--bg);
+  transition: all 0.6s ease;
+}
+
+/* =================== HEADER =================== */
+header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 1rem 2rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(0,0,0,0.2);
+  border-bottom: 1px solid var(--border);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  background: var(--title-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+nav a {
+  text-decoration: none;
+  min-width: max-content;
+  color: var(--text-color);
+  margin-left: 2rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #d4af37;
+}
+
+/* =================== BUTTONS =================== */
+.btn-primary {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  padding: 0.8rem 1.8rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(212,175,55,0.4);
+}
+
+.btn-small, .search-btn {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  border: none;
+}
+
+.btn-small:hover, .search-btn:hover {
+  transform: scale(1.05);
+}
+
+/* =================== FOOTER =================== */
+footer {
+  text-align: center;
+  padding: 4rem 2rem 2rem;
+  background: var(--card-bg);
+  border-top: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+
+.newsletter h3 {
+  background: var(--title-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subscribe-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.subscribe-box input {
+  padding: 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 20px 0 0 20px;
+  outline: none;
+  background: transparent;
+  color: var(--text-color);
+  width: 200px;
+}
+
+.subscribe-box button {
+  border: none;
+  padding: 0.6rem 1rem;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+}
+
+.footer-bottom {
+  margin-top: 2rem;
+}
+
+.footer-bottom .socials a {
+  color: var(--text-color);
+  text-decoration: none;
+  margin: 0 0.5rem;
+  font-weight: 500;
+}
+
+.theme-toggle {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+  z-index: 1001;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.05);
+}
+
+/* === Continuous golden wave background (no seams, no repeat) === */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 600' preserveAspectRatio='xMidYMid slice'><path d='M0 300 Q400 200 800 300 T1600 300' stroke='rgba(212,175,55,0.25)' fill='none' stroke-width='1.2'/><path d='M0 340 Q400 440 800 340 T1600 340' stroke='rgba(212,175,55,0.15)' fill='none' stroke-width='1.2'/><path d='M0 380 Q400 260 800 380 T1600 380' stroke='rgba(212,175,55,0.1)' fill='none' stroke-width='1.2'/></svg>");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  opacity: 0.45;
+}
+
+
+
+
+
