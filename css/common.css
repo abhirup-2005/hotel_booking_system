@@ -65,14 +65,14 @@ header {
 
 nav {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  gap: 15px;
 }
 
 nav a {
   text-decoration: none;
   min-width: max-content;
   color: var(--text-color);
-  margin-left: 2rem;
   font-weight: 500;
   transition: color 0.3s ease;
 }
@@ -81,6 +81,28 @@ nav a:hover {
   color: #d4af37;
 }
 
+.theme-toggle {
+  min-width: max-content;
+  background: white;
+  color: black;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+  z-index: 1001;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.05);
+}
+
+body.light-mode .theme-toggle {
+  background: black;
+  color: wheat;
+}
 /* =================== BUTTONS =================== */
 .btn-primary {
   background: var(--btn-bg);
@@ -162,26 +184,6 @@ footer {
   text-decoration: none;
   margin: 0 0.5rem;
   font-weight: 500;
-}
-
-.theme-toggle {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background: var(--btn-bg);
-  color: var(--btn-text);
-  border: none;
-  padding: 0.7rem 1.4rem;
-  border-radius: 30px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 12px rgba(0,0,0,0.2);
-  z-index: 1001;
-}
-
-.theme-toggle:hover {
-  transform: scale(1.05);
 }
 
 /* === Continuous golden wave background (no seams, no repeat) === */
