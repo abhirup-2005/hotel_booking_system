@@ -1,13 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
   const themeBtn = document.getElementById("themeToggle");
-  if (!themeBtn) return;
 
-  themeBtn.addEventListener("click", () => {
-    document.body.classList.toggle("light-mode");
-    themeBtn.textContent = document.body.classList.contains("light-mode")
-      ? "🌙Dark"
-      : "☀️Light";
-  });
+  // ✅ 1. Load saved theme (if any)
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "light") {
+    document.body.classList.add("light-mode");
+    if (themeBtn) themeBtn.textContent = "🌙 Dark";
+  } else {
+    if (themeBtn) themeBtn.textContent = "☀️ Light";
+  }
+
+  // ✅ 2. Toggle theme and save preference
+  if (themeBtn) {
+    themeBtn.addEventListener("click", () => {
+      const isLight = document.body.classList.toggle("light-mode");
+      localStorage.setItem("theme", isLight ? "light" : "dark");
+      themeBtn.textContent = isLight ? "🌙 Dark" : "☀️ Light";
+    });
+  }
 });
 
 // === Hamburger Menu Toggle ===
@@ -20,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
       navMenu.classList.toggle("show");
     });
 
-    // Close menu when link is clicked
     navMenu.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
         navMenu.classList.remove("show");

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EliteStay Hotels — Find Your Perfect Stay</title>
+
+    <!-- Common & Page-specific Styles -->
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/hotels.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="logo"><a href="./index.html">EliteStay</a></div>
+
+        <!-- Hamburger icon (visible on mobile only) -->
+        <div class="hamburger" id="hamburger">
+            ☰
+        </div>
+
+        <!-- Navigation links -->
+        <nav id="navMenu">
+            <a href="#about">About Us</a>
+            <a href="#support">Support</a>
+            <a href="#login">Login</a>
+            <button id="themeToggle" class="theme-toggle">☀️ Light</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- SEARCH BAR -->
+        <section class="hero search-section">
+            <div class="hero-content">
+                <div class="search-box">
+                    <input type="text" id="hotelSearchInput" placeholder="Search hotels, destinations..." />
+                    <button class="search-btn" id="hotelSearchBtn">Search Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEARCH RESULTS -->
+        <section class="results-section">
+            <h2 id="searchTitle">Search Results</h2>
+            <div id="searchResults" class="hotel-grid"></div>
+            <p id="noResults" class="no-results" style="display: none;">No results found.</p>
+        </section>
+
+        <!-- RECOMMENDED HOTELS -->
+        <section class="recommended-section" id="recommendedSection" style="display: none;">
+            <h2>Recommended Hotels</h2>
+            <div id="recommendedHotels" class="hotel-grid"></div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="newsletter">
+            <h3>Stay Updated</h3>
+            <p>Subscribe for exclusive hotel deals and travel tips.</p>
+            <div class="subscribe-box">
+                <input type="email" placeholder="Enter your email" />
+                <button>Subscribe</button>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 EliteStay Hotels · All Rights Reserved</p>
+            <div class="socials">
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">X</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+    <script src="./js/hotels.js"></script>
+</body>
+
+</html>
