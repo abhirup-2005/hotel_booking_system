@@ -20,7 +20,7 @@
     center/cover no-repeat;
   z-index: -2;
   transform: scale(1.1);
-  animation: move-bg 25s infinite alternate ease-in-out;
+  animation: move-bg 10s infinite alternate ease-in-out;
 }
 
 /* Gradient Overlay */
@@ -42,11 +42,6 @@ body:not(.light-mode) .hero::before {
 @keyframes move-bg {
   from { transform: scale(1.1) translate(0, 0); }
   to { transform: scale(1.1) translate(-30px, -30px); }
-}
-
-@keyframes gradientMove {
-  0% { background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(212,175,55,0.1)); }
-  100% { background: linear-gradient(135deg, rgba(0,0,0,0.5), rgba(212,175,55,0.3)); }
 }
 
 /* Hero Content */
@@ -252,4 +247,93 @@ body:not(.light-mode) .hero::before {
   color: var(--subtext-color);
   font-style: normal;
   font-weight: 500;
+}
+
+
+/* =========================================================
+   DESTINATIONS SLIDER (RESPONSIVE)
+========================================================= */
+.destinations {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.dest-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+  scrollbar-width: none; /* hide scrollbar on Firefox */
+}
+
+.dest-slider::-webkit-scrollbar {
+  display: none; /* hide scrollbar on Chrome */
+}
+
+.dest-card {
+  flex: 0 0 30%; /* ✅ desktop: 3 cards visible */
+  height: 320px;
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  scroll-snap-align: start;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--border);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  min-width: 300px;
+}
+
+.dest-card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.dest-card .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem;
+  text-align: center;
+}
+
+.dest-card h3 {
+  color: white;
+  margin: 0.5rem 0;
+  font-size: 1.4rem;
+}
+
+.dest-card .btn-small {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  padding: 0.5rem 1.3rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border: none;
+  transition: 0.3s ease;
+}
+
+.dest-card .btn-small:hover {
+  transform: scale(1.08);
+}
+
+/* ✅ Responsive behavior */
+@media (max-width: 1024px) {
+  .dest-card {
+    flex: 0 0 45%; /* tablet: 2 cards visible */
+  }
+}
+
+@media (max-width: 768px) {
+  .dest-card {
+    flex: 0 0 80%; /* mobile: 1 card visible */
+    height: 300px;
+  }
 }
