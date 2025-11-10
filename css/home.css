@@ -1,4 +1,6 @@
-/* =================== HERO =================== */
+/* =========================================================
+   HERO SECTION
+========================================================= */
 .hero {
   height: 100vh;
   display: flex;
@@ -9,31 +11,34 @@
   overflow: hidden;
 }
 
+/* Background Image */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?auto=format&fit=crop&w=1920&q=80") center/cover no-repeat;
+  background: url("https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?auto=format&fit=crop&w=1920&q=80")
+    center/cover no-repeat;
   z-index: -2;
   transform: scale(1.1);
   animation: move-bg 25s infinite alternate ease-in-out;
 }
 
+/* Gradient Overlay */
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(212,175,55,0.15));
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(212, 175, 55, 0.15));
   z-index: -1;
   animation: gradientMove 12s infinite alternate ease-in-out;
 }
 
-/* Add dark filter to hero image when in dark mode */
+/* Dark Mode Adjustment */
 body:not(.light-mode) .hero::before {
   filter: brightness(0.4);
 }
 
-
+/* Animations */
 @keyframes move-bg {
   from { transform: scale(1.1) translate(0, 0); }
   to { transform: scale(1.1) translate(-30px, -30px); }
@@ -44,6 +49,7 @@ body:not(.light-mode) .hero::before {
   100% { background: linear-gradient(135deg, rgba(0,0,0,0.5), rgba(212,175,55,0.3)); }
 }
 
+/* Hero Content */
 .hero-content {
   z-index: 1;
   padding: 2rem;
@@ -63,6 +69,7 @@ body:not(.light-mode) .hero::before {
   margin-bottom: 2rem;
 }
 
+/* Search Box */
 .search-box {
   display: flex;
   background: var(--card-bg);
@@ -77,7 +84,7 @@ body:not(.light-mode) .hero::before {
 
 .search-box input {
   flex: 1;
-  min-width: 0; /*change*/
+  min-width: 0;
   background: transparent;
   border: none;
   outline: none;
@@ -89,10 +96,13 @@ body:not(.light-mode) .hero::before {
 }
 
 .search-btn {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
-/* =================== FEATURES =================== */
+
+/* =========================================================
+   FEATURES SECTION
+========================================================= */
 .features {
   text-align: center;
   padding: 10px;
@@ -127,7 +137,10 @@ body:not(.light-mode) .hero::before {
   transform: translateY(-6px);
 }
 
-/* =================== STATS =================== */
+
+/* =========================================================
+   STATS SECTION
+========================================================= */
 .stats {
   display: flex;
   justify-content: center;
@@ -148,17 +161,20 @@ body:not(.light-mode) .hero::before {
   color: var(--subtext-color);
 }
 
-/* =================== DESTINATIONS =================== */
+
+/* =========================================================
+   DESTINATIONS SECTION
+========================================================= */
 .destinations {
   text-align: center;
   padding: 4rem 2rem;
 }
 
 .destinations h2 {
+  font-family: 'Playfair Display', serif;
   background: var(--title-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: 'Playfair Display', serif;
   margin-bottom: 2rem;
 }
 
@@ -180,7 +196,7 @@ body:not(.light-mode) .hero::before {
 .dest-card .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -189,7 +205,7 @@ body:not(.light-mode) .hero::before {
 }
 
 .dest-card:hover .overlay {
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .dest-card h3 {
@@ -198,7 +214,10 @@ body:not(.light-mode) .hero::before {
   margin-bottom: 1rem;
 }
 
-/* =================== TESTIMONIALS =================== */
+
+/* =========================================================
+   TESTIMONIALS SECTION
+========================================================= */
 .testimonials {
   text-align: center;
   padding: 4rem 2rem;
