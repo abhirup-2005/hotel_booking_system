@@ -139,11 +139,13 @@ body.light-mode .theme-toggle {
 .btn-primary {
   background: var(--btn-bg);
   color: var(--btn-text);
-  padding: 0.8rem 1.8rem;
+  padding: 1.2rem 2.5rem;
   border-radius: 30px;
   text-decoration: none;
   font-weight: 500;
+  font-size: 1rem;
   display: inline-block;
+  border: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -223,6 +225,16 @@ footer {
   font-weight: 500;
 }
 
+/* Button click animation */
+@keyframes press-effect {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); } /* slightly bigger */
+  100% { transform: scale(1); } /* back to normal */
+}
+
+button:active {
+  animation: press-effect 1s ease;
+}
 
 /* =========================================================
    HAMBURGER MENU (MOBILE)
