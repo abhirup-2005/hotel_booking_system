@@ -55,3 +55,34 @@ if (destSlider) {
     });
 }
 
+/* ================================
+   HERO BACKGROUND SLIDESHOW
+================================== */
+const hero = document.querySelector(".hero");
+
+const slideImages = [
+  "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80",
+  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80",
+  "https://images.unsplash.com/photo-1606402179428-a57976d71fa4?auto=format&fit=crop&w=1920&q=80",
+  "https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd?auto=format&fit=crop&w=1920&q=80"
+];
+
+let currentSlide = 0;
+
+// Create slide layers
+slideImages.forEach((img, index) => {
+    const slide = document.createElement("div");
+    slide.classList.add("hero-bg-slide");
+    slide.style.backgroundImage = `url('${img}')`;
+    if (index === 0) slide.style.opacity = 1;
+    hero.prepend(slide); // add behind content
+});
+
+const slides = document.querySelectorAll(".hero-bg-slide");
+
+// Automatic slideshow every 6s
+setInterval(() => {
+    slides[currentSlide].style.opacity = 0; // fade out
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].style.opacity = 1; // fade in
+}, 4000);

@@ -18,6 +18,10 @@
   --btn-text: #0f0f0f;
 }
 
+#logo::selection{
+  text-decoration: underline;
+}
+
 body.light-mode {
   --bg: linear-gradient(135deg, #f9f5ec 0%, #f4e9cf 100%);
   --text-color: #3b2e1a;

@@ -2,13 +2,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const themeBtn = document.getElementById("themeToggle");
 
   // ✅ 1. Load saved theme (if any)
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "light") {
-    document.body.classList.add("light-mode");
-    if (themeBtn) themeBtn.textContent = "🌙 Dark";
-  } else {
-    if (themeBtn) themeBtn.textContent = "☀️ Light";
-  }
+  // const savedTheme = localStorage.getItem("theme");
+  // if (savedTheme === "light") {
+  //   document.body.classList.add("light-mode");
+  //   if (themeBtn) themeBtn.textContent = "🌙 Dark";
+  // } else {
+  //   if (themeBtn) themeBtn.textContent = "☀️ Light";
+  // }
 
   // ✅ 2. Toggle theme and save preference
   if (themeBtn) {
