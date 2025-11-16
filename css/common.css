@@ -80,8 +80,15 @@ header {
   border-bottom: 1px solid var(--border);
   position: fixed;
   top: 0;
-  width: 100%;
+  max-width: 92vw;
+  min-width: 92vw;
   z-index: 1000;
+  margin: 3vh 4vw;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+header:hover {
+  transform: scale(1.03);
 }
 
 .logo {
