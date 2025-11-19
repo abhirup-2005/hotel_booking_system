@@ -119,3 +119,104 @@ guestInput.addEventListener("input", () => {
     guestContainer.appendChild(box);
   }
 });
+
+// -----------------------------
+// ERROR HANDLING (UPDATED WITH GUEST VALIDATION)
+// -----------------------------
+const roomInput = document.getElementById("room-cnt");
+const checkInInput = document.getElementById("checkIn");
+const checkOutInput = document.getElementById("checkOut");
+const guestInputField = document.getElementById("guests");
+
+// Create error message elements
+const roomError = document.createElement("p");
+roomError.className = "error-msg";
+
+const checkInError = document.createElement("p");
+checkInError.className = "error-msg";
+
+const checkOutError = document.createElement("p");
+checkOutError.className = "error-msg";
+
+const guestError = document.createElement("p");
+guestError.className = "error-msg";
+
+// Attach errors below inputs
+roomInput.insertAdjacentElement("afterend", roomError);
+checkInInput.insertAdjacentElement("afterend", checkInError);
+checkOutInput.insertAdjacentElement("afterend", checkOutError);
+guestInputField.insertAdjacentElement("afterend", guestError);
+
+
+// -----------------------------
+// Validate Rooms
+// -----------------------------
+roomInput.addEventListener("input", () => {
+    const required = Number(roomInput.value);
+    const available = hotelData[hotelName].rooms;
+
+    if (required > available) {
+        roomError.innerText = `Only ${available} rooms available. Enter ≤ ${available}.`;
+    } else {
+        roomError.innerText = "";
+    }
+});
+
+
+// -----------------------------
+// Validate Check-in ≥ Now
+// -----------------------------
+checkInInput.addEventListener("change", () => {
+    const now = new Date();
+    const checkInDate = new Date(checkInInput.value);
+
+    if (checkInDate < now) {
+        checkInError.innerText = "Check-in time cannot be in the past!";
+        checkInInput.value = "";
+        return;
+    }
+
+    checkInError.innerText = "";
+
+    if (checkOutInput.value) validateCheckout();
+});
+
+
+// -----------------------------
+// Validate Check-out logic
+// -----------------------------
+function validateCheckout() {
+    const now = new Date();
+    const checkInDate = new Date(checkInInput.value);
+    const checkOutDate = new Date(checkOutInput.value);
+
+    if (checkOutDate < now) {
+        checkOutError.innerText = "Check-out cannot be in the past!";
+        checkOutInput.value = "";
+        return;
+    }
+
+    if (checkOutDate <= checkInDate) {
+        checkOutError.innerText = "Check-out must be later than check-in!";
+        checkOutInput.value = "";
+        return;
+    }
+
+    checkOutError.innerText = "";
+}
+
+checkOutInput.addEventListener("change", validateCheckout);
+
+
+// -----------------------------
+// Validate Guests ≥ 1
+// -----------------------------
+guestInputField.addEventListener("input", () => {
+    const guests = Number(guestInputField.value);
+
+    if (guests < 1) {
+        guestError.innerText = "At least 1 guest is required.";
+    } else {
+        guestError.innerText = "";
+    }
+});
