@@ -62,3 +62,8 @@
   border: 1px solid var(--border);
   color: var(--text-color);
 }
+
+.confirm-btn {
+  margin-top: 4rem;
+  border: 2px red solid;
+}
