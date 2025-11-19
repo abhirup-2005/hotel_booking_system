@@ -1,0 +1,64 @@
+.details-container {
+  margin-top: 120px;
+  padding: 2rem 10%;
+}
+
+.hotel-banner {
+  width: 100%;
+  height: 350px;
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 2rem;
+}
+
+.hotel-info {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+}
+
+.booking-box {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  border-radius: 15px;
+}
+
+.booking-box input {
+  display: block;
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  color: var(--text-color);
+  background: transparent;
+}
+
+.guest-box {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  border-radius: 12px;
+}
+
+.guest-box h4 {
+  margin: 0 0 10px 0;
+  background: var(--title-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.guest-box input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 0.6rem;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-color);
+}

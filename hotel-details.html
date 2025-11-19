@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Details</title>
+
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/hotel-details.css" />
+</head>
+
+<body>
+    <header>
+        <div class="logo"><a href="./index.html">EliteStay</a></div>
+        <div class="hamburger" id="hamburger">☰</div>
+
+        <nav id="navMenu">
+            <a href="./index.html#about">About Us</a>
+            <a href="./index.html#destinations">Destinations</a>
+            <a href="./index.html#review">Review</a>
+            <a href="#socials">Socials</a>
+            <button id="themeToggle" class="theme-toggle">☀️ Light</button>
+        </nav>
+    </header>
+
+    <main class="details-container">
+        <div class="hotel-banner" id="hotelBanner"></div>
+
+        <div class="hotel-info">
+            <h1 id="hotelName"></h1>
+            <p id="hotelLocation"></p>
+            <p id="hotelPrice"></p>
+            <p id="hotelRooms"></p>
+
+            <h3>Description</h3>
+            <p id="hotelDescription"></p>
+
+            <h3>Amenities</h3>
+            <ul id="hotelAmenities"></ul>
+
+            <button class="btn-primary" id="bookNowBtn">Book Now</button>
+        </div>
+
+        <div class="booking-box" id="bookingBox" style="display:none;">
+            <h2>Booking Details</h2>
+
+            <label>Required Number of Rooms</label>
+            <input type="number" id="room-cnt">
+
+            <label>Check-in Date and Time (Ex: 01-12-2000 18:00):</label>
+            <input type="datetime-local" id="checkIn">
+
+            <label>Check-out Date and Time (Ex: 01-12-2000 18:00):</label>
+            <input type="datetime-local" id="checkOut">
+
+            <label>Number of Guests:</label>
+            <input type="number" id="guests" min="1" value="1">
+
+            <div id="guestDetailsContainer"></div>
+
+            <button class="btn-primary">Confirm Booking</button>
+        </div>
+    </main>
+    <!-- FOOTER -->
+    <footer>
+        <div class="newsletter">
+            <h3>Stay Updated</h3>
+            <p>Subscribe for exclusive hotel deals and travel tips.</p>
+            <div class="subscribe-box">
+                <input type="email" placeholder="Enter your email" />
+                <button>Subscribe</button>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 EliteStay Hotels · All Rights Reserved</p>
+            <div class="socials" id="socials">
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">X</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="./js/script.js"></script>
+    <script src="./js/hotel-details.js"></script>
+</body>
+
+</html>

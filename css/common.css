@@ -73,7 +73,7 @@ header {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: 1rem 2rem;
+  padding: 0.7rem 2rem;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   background: rgba(0, 0, 0, 0.2);
@@ -83,8 +83,8 @@ header {
   max-width: 92vw;
   min-width: 92vw;
   z-index: 1000;
-  margin: 3vh 4vw;
-  border-radius: 10px;
+  margin: 1.5vh 4vw;
+  border-radius: 20px;
   transition: transform 0.3s ease;
 }
 header:hover {

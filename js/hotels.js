@@ -34,13 +34,13 @@ const hotels = [
 
   },
   {
-    name: "Delhi Comfort Inn",
-    location: "Delhi",
+    name: "Delux Comfort Inn",
+    location: "Kolkata",
     price: 4500,
     image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80"
   },
   {
-    name: "Kolkata Raj Bhavan",
+    name: "The Raj Bhavan",
     location: "Kolkata",
     price: 10000,
     image: "https://images.unsplash.com/photo-1558431382-9b06d0507edc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1074"
@@ -74,7 +74,7 @@ const hotels = [
   detailButtons.forEach(btn => {
     btn.addEventListener("click", (e) => {
       const hotelName = e.target.getAttribute("data-name");
-      alert(`Showing details for: ${hotelName}`);
+      window.location.href = `hotel-details.html?name=${encodeURIComponent(hotelName)}`;
       // 🔹 Later: replace alert with modal or redirect logic
       // window.location.href = `hotel-details.html?name=${encodeURIComponent(hotelName)}`;
     });
