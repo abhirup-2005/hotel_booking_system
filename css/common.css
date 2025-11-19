@@ -344,3 +344,50 @@ button:active {
     color: #c9a33f; /* warm golden hover */
   }
 }
+
+#backToTop {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  padding: 8px 8px;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(0,0,0,0.3);
+  display: none; /* Hidden initially */
+  z-index: 9999;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#backToTop:hover {
+  transform: scale(1.12);
+}
+
+/* === Mobile Menu Overlay === */
+#navOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4); /* dark transparent */
+  backdrop-filter: blur(4px);  /* frosted glass */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 900; /* below menu, above everything else */
+}
+
+#navOverlay.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* === Hamburger Icon Animation === */
+#hamburger {
+  transition: transform 0.3s ease;
+}
+
+#hamburger.rotate {
+  transform: rotate(90deg);
+}
