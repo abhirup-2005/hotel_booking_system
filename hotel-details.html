@@ -83,6 +83,77 @@
     <button id="backToTop">↑</button>
     <div id="navOverlay"></div>
 
+    <!-- SIGN UP / SIGN IN MODAL -->
+    <div id="authModal" class="auth-modal">
+        <div class="auth-content">
+
+            <span id="closeAuth" class="close-auth">✖</span>
+
+            <div class="auth-boxes">
+                <!-- SIGN UP BOX -->
+                <div class="auth-box">
+                    <h2>Sign Up</h2>
+                    <input type="text" id="suName" placeholder="Full Name">
+                    <input type="email" id="suEmail" placeholder="Email">
+                    <input type="text" id="suUser" placeholder="Username">
+                    <input type="password" id="suPass" placeholder="Password">
+                    <input type="password" id="suCPass" placeholder="Confirm Password">
+                    <button id="signUpSubmit" class="btn-primary">Create Account</button>
+                    <p id="suError" class="auth-error"></p>
+                </div>
+
+                <!-- SIGN IN BOX -->
+                <div class="auth-box">
+                    <h2>Sign In</h2>
+                    <input type="text" id="siUser" placeholder="Username / Email">
+                    <input type="password" id="siPass" placeholder="Password">
+                    <button id="signInSubmit" class="btn-primary">Login</button>
+                    <p id="siError" class="auth-error"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROFILE MODAL -->
+    <div id="profileModal" class="auth-modal">
+        <div class="auth-content profile-box">
+
+            <span id="closeProfile" class="close-auth">✖</span>
+
+            <h2>Your Profile</h2>
+
+            <p><strong>Full Name:</strong> <span id="pfName">—</span></p>
+            <p><strong>Username:</strong> <span id="pfUser">—</span></p>
+            <p><strong>Email:</strong> <span id="pfEmail">—</span></p>
+
+            <button id="logoutBtn" class="btn-primary" style="margin-top:1rem;">
+                Log Out
+            </button>
+
+            <button id="deleteBtn" class="btn-primary" style="background:#ff4d4d; margin-top:0.6rem;">
+                Delete Account
+            </button>
+
+            <!-- ✅ FIXED — THIS MUST BE INSIDE auth-content -->
+            <div id="deleteConfirmBox" style="display:none; margin-top:1rem;">
+                <p style="color:#ff4d4d; font-weight:600;">
+                    WARNING: This action permanently deletes your account.
+                </p>
+
+                <input type="password" id="deletePassInput" placeholder="Enter your password to confirm"
+                    style="width:100%; padding:0.7rem; border-radius:10px; border:1px solid var(--border);">
+
+                <p id="deleteError" style="color:#ff4d4d; font-size:0.9rem; height:18px; margin-top:6px;"></p>
+
+                <button id="finalDeleteBtn" class="btn-primary" style="background:#ff1f1f; margin-top:0.5rem;">
+                    Permanently Delete Account
+                </button>
+            </div>
+            <!-- END FIX -->
+
+        </div>
+    </div>
+
     <script src="./js/script.js"></script>
     <script src="./js/hotel-details.js"></script>
 </body>
