@@ -85,28 +85,50 @@ document.addEventListener("DOMContentLoaded", () => {
     // ------------------ COMPARE LOGIC ------------------
     let firstCompare = localStorage.getItem("compare1");
 
-    // Add listeners to compare buttons
+    // Function to apply highlight if already selected
+    function applySelectedHighlight() {
+      const cards = document.querySelectorAll(".hotel-card");
+      cards.forEach(card => {
+        const name = card.querySelector("h3").textContent.trim();
+        if (name === firstCompare) {
+          card.classList.add("selected-compare");
+        } else {
+          card.classList.remove("selected-compare");
+        }
+      });
+    }
+
+    // Highlight initially when page loads
+    applySelectedHighlight();
+
     const compareButtons = container.querySelectorAll(".compare-btn");
 
     compareButtons.forEach(btn => {
       btn.addEventListener("click", (e) => {
         const hotelName = e.target.getAttribute("data-name");
+        const card = e.target.closest(".hotel-card");
 
         if (!firstCompare) {
+          // First hotel selected
           localStorage.setItem("compare1", hotelName);
-          firstCompare = hotelName;  // <-- IMPORTANT FIX
-          alert("Selected: " + hotelName + "\nSelect another hotel to compare.");
+          firstCompare = hotelName;
+
+          // Add highlight visually
+          applySelectedHighlight();
         } else {
-          const secondHotel = hotelName;
+          const secondCard = e.target.closest(".hotel-card");
+          secondCard.classList.add("selected-compare");
 
-          // redirect to compare page with 2 hotel names
-          window.location.href = `compare.html?h1=${encodeURIComponent(firstCompare)}&h2=${encodeURIComponent(secondHotel)}`;
-
-          // reset after redirect
-          localStorage.removeItem("compare1");
+          // wait a moment, then redirect
+          setTimeout(() => {
+            window.location.href = `compare.html?h1=${encodeURIComponent(firstCompare)}&h2=${encodeURIComponent(hotelName)}`;
+            localStorage.removeItem("compare1");
+          }, 1000);
         }
+
       });
     });
+
   }
 
 

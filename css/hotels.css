@@ -111,4 +111,24 @@ main {
   box-shadow: 0 0 10px rgba(100,100,100,0.3);
 }
 
+/* Selected compare hotel styling */
+.hotel-card.selected-compare {
+  border: 2px solid #00cc66 !important;
+  background: rgba(0, 255, 100, 0.08) !important;
+  box-shadow: 0 0 15px rgba(0, 255, 150, 0.4);
+  position: relative;
+}
 
+/* Selected label */
+.hotel-card.selected-compare::after {
+  content: "✔ Selected";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #00cc66;
+  color: black;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
