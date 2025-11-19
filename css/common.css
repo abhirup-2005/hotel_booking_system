@@ -391,3 +391,84 @@ button:active {
 #hamburger.rotate {
   transform: rotate(90deg);
 }
+
+/* === AUTH MODAL === */
+.auth-modal {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(6px);
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+}
+
+.auth-content {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  border-radius: 18px;
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+}
+
+.close-auth {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.auth-boxes {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.auth-box {
+  flex: 1;
+  min-width: 250px;
+  background: rgba(255,255,255,0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.auth-box input {
+  width: 100%;
+  margin-bottom: 0.7rem;
+  padding: 0.7rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.auth-error {
+  color: #ff4d4d;
+  margin-top: 5px;
+  font-size: 0.9rem;
+  height: 18px;
+}
+
+.profile-box {
+    max-width: 450px;
+}
+
+.profile-box p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
+/* Fix modal overflow on small screens */
+@media (max-width: 768px) {
+    .auth-content {
+        max-height: 85vh;      /* prevents it from being taller than screen */
+        overflow-y: auto;      /* makes inner area scrollable */
+        padding-bottom: 1rem !important;
+
+        /* Optional: smooth mobile scrolling */
+        -webkit-overflow-scrolling: touch;
+    }
+}
