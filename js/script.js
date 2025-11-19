@@ -294,3 +294,56 @@ document.querySelectorAll(".sign-up").forEach(el => {
     }
   });
 });
+
+// ============================
+// NEWSLETTER SUBSCRIPTION POPUP + ERROR MESSAGE
+// ============================
+
+document.querySelectorAll(".subscribe-box").forEach(box => {
+    
+    const input = box.querySelector("input");
+    const btn = box.querySelector("button");
+
+    // Create error text element (placed AFTER the subscribe-box)
+    let errorMsg = document.createElement("p");
+    errorMsg.style.color = "#ff4d4d";
+    errorMsg.style.fontSize = "0.9rem";
+    errorMsg.style.marginTop = "6px";
+    errorMsg.style.textAlign = "center";
+    errorMsg.style.height = "18px"; // keeps layout stable
+    errorMsg.textContent = "";
+
+    // Insert the error message RIGHT AFTER subscribe-box
+    box.insertAdjacentElement("afterend", errorMsg);
+
+    btn.addEventListener("click", () => {
+        const email = input.value.trim();
+
+        // Validate email
+        if (!email || !email.includes("@")) {
+            errorMsg.textContent = "Please enter a valid email!";
+            return;
+        }
+
+        // Clear error if valid
+        errorMsg.textContent = "";
+
+        // Set popup message
+        const msg = document.getElementById("subscribeMsg");
+        msg.textContent = `Thanks for subscribing! You will receive exclusive hotel deals and travel tips on ${email}`;
+
+        // Show popup
+        document.getElementById("subscribePopup").style.display = "flex";
+
+        // Clear input
+        input.value = "";
+    });
+});
+
+// Close popup
+const closeSub = document.getElementById("closeSubscribePopup");
+if (closeSub) {
+    closeSub.addEventListener("click", () => {
+        document.getElementById("subscribePopup").style.display = "none";
+    });
+}
