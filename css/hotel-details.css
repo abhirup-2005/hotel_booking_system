@@ -73,3 +73,13 @@
     margin-bottom: 10px;
     font-weight: 500;
 }
+
+/* Default (dark mode) → make calendar icon white */
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+/* Light mode → keep the icon black */
+body.light-mode input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    filter: invert(0);
+}

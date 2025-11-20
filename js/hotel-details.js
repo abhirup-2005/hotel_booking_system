@@ -220,3 +220,83 @@ guestInputField.addEventListener("input", () => {
         guestError.innerText = "";
     }
 });
+
+// ==========================================
+// CONFIRM BOOKING BUTTON FUNCTIONALITY
+// ==========================================
+
+const confirmBtn = document.querySelector(".confirm-btn");
+
+confirmBtn.addEventListener("click", () => {
+
+    // ------------------------------
+    // 1. VALIDATE GUEST FIELDS
+    // ------------------------------
+    const guestCount = Number(guestInput.value);
+
+    if (guestCount < 1) {
+        alert("Enter at least 1 guest.");
+        return;
+    }
+
+    for (let i = 1; i <= guestCount; i++) {
+        const name = document.getElementById(`guest${i}_name`).value.trim();
+        const age = document.getElementById(`guest${i}_age`).value.trim();
+        const doc = document.getElementById(`guest${i}_doc`).value;
+
+        if (!name || !age || !doc) {
+            alert(`Please fill all details for Guest ${i}.`);
+            return;
+        }
+
+        if (Number(age) < 1) {
+            alert(`Guest ${i} age must be at least 1.`);
+            return;
+        }
+    }
+
+    // ------------------------------
+    // 2. VALIDATE SIGN-IN STATUS
+    // ------------------------------
+    const isLogged = localStorage.getItem("eliteLogged");
+    const user = JSON.parse(localStorage.getItem("eliteUser"));
+
+    if (!isLogged || !user) {
+        // open sign up modal automatically
+        document.getElementById("authModal").style.display = "flex";
+        return;
+    }
+
+    // ------------------------------
+    // 3. SHOW SUCCESS POPUP MODAL
+    // ------------------------------
+    const roomsBooked = document.getElementById("room-cnt").value;
+    const hotel = hotelName;
+    const email = user.email;
+
+    // Create modal
+    const successModal = document.createElement("div");
+    successModal.className = "auth-modal";
+    successModal.style.display = "flex";
+
+    successModal.innerHTML = `
+        <div class="auth-content" style="max-width:400px; text-align:center;">
+            <h2>Booking Successful 🎉</h2>
+            <p style="margin:15px 0;">
+                <strong>${roomsBooked}</strong> room(s) are booked in 
+                <strong>${hotel}</strong>.<br>
+                Details have been sent to <strong>${email}</strong>.
+            </p>
+            <button class="btn-primary" id="closeSuccessPopup" style="margin-top:10px;">
+                Close
+            </button>
+        </div>
+    `;
+
+    document.body.appendChild(successModal);
+
+    // Close popup
+    document.getElementById("closeSuccessPopup").addEventListener("click", () => {
+        successModal.remove();
+    });
+});
