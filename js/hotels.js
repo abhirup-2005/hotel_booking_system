@@ -108,6 +108,19 @@ document.addEventListener("DOMContentLoaded", () => {
         const hotelName = e.target.getAttribute("data-name");
         const card = e.target.closest(".hotel-card");
 
+        // === UNSELECT FEATURE ===
+        if (firstCompare === hotelName) {
+          localStorage.removeItem("compare1");
+          firstCompare = null;
+
+          card.classList.remove("selected-compare");
+          document.querySelectorAll(".compare-btn").forEach(b => b.classList.remove("selected"));
+          document.querySelectorAll(".hotel-card").forEach(c => c.classList.remove("selected-compare"));
+
+          return; // STOP here
+        }
+
+        //Normal Flow
         if (!firstCompare) {
           // First hotel selected
           localStorage.setItem("compare1", hotelName);
