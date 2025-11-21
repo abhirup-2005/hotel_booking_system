@@ -115,9 +115,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
           // Add highlight visually
           applySelectedHighlight();
+          btn.classList.add("selected");    // turn button green
         } else {
           const secondCard = e.target.closest(".hotel-card");
           secondCard.classList.add("selected-compare");
+          btn.classList.add("selected");    // turn button green
 
           // wait a moment, then redirect
           setTimeout(() => {
@@ -173,4 +175,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const newUrl = `${window.location.pathname}?search=${encodeURIComponent(newQuery)}`;
     window.history.replaceState(null, "", newUrl);
   });
+
+  // Trigger search when pressing Enter
+  searchInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      searchBtn.click(); // performs the same search
+    }
+  });
+
 });

@@ -132,3 +132,11 @@ main {
   border-radius: 20px;
   font-size: 0.8rem;
 }
+
+/* When compare is selected, make button green */
+.compare-btn.selected {
+    background: #00cc66 !important;
+    color: black !important;
+    font-weight: 600;
+    box-shadow: 0 0 12px rgba(0,255,100,0.5);
+}

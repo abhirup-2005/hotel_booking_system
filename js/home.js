@@ -8,6 +8,14 @@ searchBtn.addEventListener("click", () => {
     window.location.href = `hotels.html?search=${encodeURIComponent(query)}`;
 });
 
+searchInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        e.preventDefault(); 
+        searchBtn.click();   // triggers same search
+    }
+});
+
+
 // === Dynamic Destinations Slider ===
 const destSlider = document.getElementById("destSlider");
 
